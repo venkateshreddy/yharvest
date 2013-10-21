@@ -1,0 +1,1 @@
+ERL_LIBS=deps erl -pa ebin  -pz deps/riakc deps/riak_pb deps/riakc/ebin deps/riak_pb/ebin -eval "application:start(riakc),application:start(crypto), ssl:start(),application:start(ibrowse),lager:start(),application:start(yharvest)."
