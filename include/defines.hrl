@@ -18,10 +18,10 @@
 
 %% Facebook Access Token Macro. Move this to a config file later
 
--define(FBACCESSTOKEN, "CAABbC2IvUFsBAEwDOeOZCZConVfEoSzDA7T0BF5sZAn1EGdZBZBQLcygLOIZBZB4ZAxfRi04BDSfpvusZCOftqkAZAGWJwBzE4QbBWJ3aaLKaneOAJwQRqPRC11eJvlxA1mSpAZCvVfwFALRmlaBgAt9zDlCJNMkuWgLr4ZD" ).
+-define(FBACCESSTOKEN, "BbC2IvUFsBAEwDOeOZCZConVfEoSzDA7T0BF5sZAn1EGdZBZBQLcygLOIZBZB4ZAxfRi04BDSfpvusZCOftqkAZAGWJwBzE4QbBWJ3aaLKaneOAJwQRqPRC11eJvlxA1mSpAZCvVfwFALRmlaBgAt9zDlCJNMkuWgLr4ZD" ).
 -define(BASEURL, "https://graph.facebook.com/").
 -define(SSL, [{is_ssl, true}, {ssl_options, []}]).
 -define(GENDERS, ["All","1","2"]).
 -define(URL1, "https://graph.facebook.com/?method=POST&batch=[").
--define(URL2, "]&access_token=CAABbC2IvUFsBAEwDOeOZCZConVfEoSzDA7T0BF5sZAn1EGdZBZBQLcygLOIZBZB4ZAxfRi04BDSfpvusZCOftqkAZAGWJwBzE4QbBWJ3aaLKaneOAJwQRqPRC11eJvlxA1mSpAZCvVfwFALRmlaBgAt9zDlCJNMkuWgLr4ZD").
--define(FACEBOOK_ACCOUNT, "act_105496672875561").
+-define(URL2, "]&access_token=BbC2IvUFsBAEwDOeOZCZConVfEoSzDA7T0BF5sZAn1EGdZBZBQLcygLOIZBZB4ZAxfRi04BDSfpvusZCOftqkAZAGWJwBzE4QbBWJ3aaLKaneOAJwQRqPRC11eJvlxA1mSpAZCvVfwFALRmlaBgAt9zDlCJNMkuWgLr4ZD").
+-define(FACEBOOK_ACCOUNT, "act_1054966").
