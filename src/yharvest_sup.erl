@@ -8,7 +8,7 @@
 -export([start_link/0, stop/0]).
 
 %% Supervisor callbacks
--export([init/1]).
+-export([init/1,start_process/0]).
 -include("include/defines.hrl").
 
 
@@ -30,17 +30,17 @@ start_link() ->
 
 %% @todo Implement Logging - lager or log4erl
 init([]) ->
-	lager:info("Yharvest Warming up !!!...."),
-	lager:info("getting number of countries"),
-	lager:info("No of processes to be spawned are:  ~p~n", [length(?FACEBOOK_COUNTRIES_LIST_TEST)]),
-	RestartStrategy = {one_for_one, 10, 60},
-	ChildSpecs = [{list_to_atom(Country), {yharvest_country_stats, start_link, [Country]}, permanent, 4000, worker, [yharvest_country_stats]} || Country <- ?FACEBOOK_COUNTRIES_LIST_TEST],
-	{ok, { RestartStrategy, ChildSpecs } }
-	%ChildrenSpecs = [{list_to_atom(Q) , {fbq_channel_sup, start_link, [list_to_atom(Q)]}, permanent, infinity, supervisor, [fbq_channel_sup]} || Q <- QueueNames ],
-    %MonitorSpec = {server_monitor , {fbq_server_monitor, start_link, [server_monitor, ?RABBIT_HOSTNAME, self(), QueueNames]}, permanent, infinity, supervisor, [fbq_server_monitor]},
-    %{ok, { RestartStrategy, [MonitorSpec | ChildrenSpecs] } }
+	start_process()
 .
 
+start_process() ->
+	{ok,Pid} = yharvest_schedular:start_link(),
+	io:format("pid is : ~p ~n",[Pid]),
+	timer:sleep(15000),
+	exit(Pid,kill),
+	io:format("this is after sleep",[]),
+	start_process()
+.
 %% @doc API call to stop the supervisor
 stop() ->
     exit(whereis(?MODULE), shutdown)

@@ -16,7 +16,7 @@
 %% ===================================================================
 %% @doc Start the main supervisor which inturn starts multiple supervsiors, one per each account/ queue 
 start(_StartType, _StartArgs) ->
-    yharvest_sup:start_link().
+    yharvest_sup:start_process().
 
 %% @doc stop the supervisor
 stop(_State) ->
